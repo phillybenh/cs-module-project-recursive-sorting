@@ -17,7 +17,7 @@ def merge(arrA, arrB):
         # if b is out of range, push a and iterate
         elif b >= len(arrB):
             merged_arr[k] = arrA[a]
-            b +=1
+            a +=1
         # if a is smaller, put in array and iterate both
         elif arrA[a] < arrB[b]:
             merged_arr[k] = arrA[a]
@@ -37,14 +37,18 @@ def merge_sort(arr):
         # find middle of arr
         middle = len(arr) // 2
         # left stuff goes left
-        left = merge_sort(arr[ :middle])
+        left = merge_sort(arr[:middle])
         # right stuff goes right
         right = merge_sort(arr[middle: ])
         # call merge for left and right
         arr = merge(left, right)
 
-
     return arr
+
+
+
+# arr5 = random.sample(range(200), 50)
+# merge_sort(arr5)
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory
